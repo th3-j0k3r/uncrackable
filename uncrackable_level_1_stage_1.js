@@ -5,7 +5,25 @@ Java.perform(function() {
   sys.exit.implementation = function() {
     console.log("bypass");
   }
-    Java.use("sg.vantagepoint.uncrackable1.a").a.implementation = function() {
-    console.log("");
-    }
+  
+// end of level 1 stage one 
+
+//start of level 1 stage two
+  function bufferToString(buf) {
+  var result = "";
+  for(var i = 0; i < buf.length; ++i){
+    result += (String.fromCharCode(buf[i]));
+  }
+  return result;
+}
+
+  let a = Java.use("sg.vantagepoint.a.a")
+  a.a.implementation = function(a1, a2) {
+    let retval = a.a.call(this, a1, a2)
+    console.log(bufferToString(retval))
+    return retval;
+}
+
+//end of level 1 stage one
+
 });
